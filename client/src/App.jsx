@@ -5,7 +5,6 @@ import Hero from "./components/Hero";
 const App = () => {
   return (
     <div className="min-h-screen bg-red-600 text-white">
-      <div className="absolute top-0 left-0 w-full h-full bg-blue-500 z-[5]"></div> 
       
       <Navbar />
       <Hero />
