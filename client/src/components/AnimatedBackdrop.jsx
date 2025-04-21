@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import focusVideo from "../assets/mood/focus.mp4";
 import nightOwlVideo from "../assets/mood/nightowl.mp4";
 
 const AnimatedBackdrop = ({ mode }) => {
   const getVideoSrc = () => {
     switch (mode) {
-      case 'nightowl':
+      case "nightowl":
         return nightOwlVideo;
-      case 'focus':
+      case "focus":
       default:
         return focusVideo;
     }
@@ -15,7 +15,7 @@ const AnimatedBackdrop = ({ mode }) => {
 
   return (
     <video
-      key={mode} // THIS is the magic fix 🔥
+      key={mode}
       className="absolute inset-0 w-full h-full object-cover z-0"
       autoPlay
       muted

@@ -23,11 +23,19 @@ const TailwindCalendar = () => {
   return (
     <div className="w-full max-w-sm mx-auto p-4 rounded-3xl bg-white/30 backdrop-blur-md shadow-2xl text-white">
       <div className="flex items-center justify-between mb-4">
-        <button onClick={() => setCurrentDate(currentDate.subtract(1, "month"))} className="text-xl hover:text-yellow-300">
+        <button
+          onClick={() => setCurrentDate(currentDate.subtract(1, "month"))}
+          className="text-xl hover:text-yellow-300"
+        >
           ‹
         </button>
-        <h2 className="text-xl font-bold">{currentDate.format("MMMM YYYY")}</h2>
-        <button onClick={() => setCurrentDate(currentDate.add(1, "month"))} className="text-xl hover:text-yellow-300">
+        <h2 className="text-xl font-bold">
+          {currentDate.format("MMMM YYYY")}
+        </h2>
+        <button
+          onClick={() => setCurrentDate(currentDate.add(1, "month"))}
+          className="text-xl hover:text-yellow-300"
+        >
           ›
         </button>
       </div>
