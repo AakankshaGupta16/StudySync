@@ -4,6 +4,8 @@ import AnimatedBackdrop from "../components/AnimatedBackdrop";
 import TailwindCalendar from "../components/TailwindCalendar";
 import TodoList from "../components/TodoList";
 import dayjs from "dayjs";
+import PomodoroTimer from "../components/PomodoroTimer";
+
 
 const SelfStudy = () => {
   const [mode, setMode] = useState("focus");
@@ -49,7 +51,13 @@ const SelfStudy = () => {
             <div className="flex-1 bg-white/15 backdrop-blur-lg rounded-3xl p-6 text-white shadow-lg border border-white/20">
               <TodoList selectedDate={selectedDate} />
             </div>
+            
           </div>
+          {/* Pomodoro Timer */}
+<div className="mt-10">
+  <PomodoroTimer />
+</div>
+
         </div>
       </div>
     </div>
