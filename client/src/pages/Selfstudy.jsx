@@ -4,7 +4,7 @@ import AnimatedBackdrop from "../components/AnimatedBackdrop";
 import TailwindCalendar from "../components/TailwindCalendar";
 import TodoList from "../components/TodoList";
 import PomodoroTimer from "../components/PomodoroTimer";
-import DocumentViewer from "../components/Documentviewer"; // ✅ NEW IMPORT
+import DocumentViewer from "../components/Documentviewer";
 import dayjs from "dayjs";
 
 const SelfStudy = () => {
@@ -15,6 +15,7 @@ const SelfStudy = () => {
   return (
     <div className="relative min-h-screen overflow-hidden flex">
       <AnimatedBackdrop mode={mode} />
+
       <div className="flex w-full">
         {/* Sidebar */}
         <div
@@ -28,16 +29,29 @@ const SelfStudy = () => {
         </div>
 
         {/* Main Content */}
-        <div className="flex flex-col flex-grow transition-all duration-300 p-6">
-          <div className="text-white text-center mb-8">
-            <h1 className="text-4xl font-bold font-mono drop-shadow-lg">
+        <div className="flex flex-col flex-grow transition-all duration-300 p-6 pt-28">
+          {/* Top Bar that moves with sidebar */}
+          <div
+            className={`fixed top-0 right-0 z-50 flex justify-between items-center px-8 py-4 bg-black/50 backdrop-blur-lg border-b border-white/20 transition-all duration-300 ${
+              isHovered ? "left-64" : "left-20"
+            }`}
+          >
+            <h1 className="text-3xl font-bold text-white font-mono drop-shadow-md">
               Self Study Mode
             </h1>
-            <p className="text-lg text-white/80">
+            <div className="w-[360px]">
+              <PomodoroTimer compact />
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="text-white text-center mb-8">
+            <p className="text-lg text-white/80 mt-2">
               Plan your grind with vibes!
             </p>
           </div>
 
+          {/* Main Grid */}
           <div className="flex gap-6">
             {/* Calendar */}
             <div className="w-[260px]">
@@ -53,12 +67,7 @@ const SelfStudy = () => {
             </div>
           </div>
 
-          {/* Pomodoro Timer */}
-          <div className="mt-10">
-            <PomodoroTimer />
-          </div>
-
-          {/* 📚 Document Upload & Preview Section */}
+          {/* Document Section */}
           <div className="mt-10">
             <DocumentViewer />
           </div>
