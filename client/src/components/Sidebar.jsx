@@ -4,18 +4,21 @@ const Sidebar = ({ setMode, mode, isHovered }) => {
   const moods = [
     { name: "Focus", value: "focus" },
     { name: "Night Owl", value: "nightowl" },
+    { name: "Chill", value: "chill" },
+    { name: "Grind", value: "grind" },
   ];
 
   const bgColor = {
-    focus: "bg-green-300/40",  // Light green for focus mode
-    nightowl: "bg-gray-800/40", // Grey for night owl mode
+    focus: "bg-green-300/40",
+    nightowl: "bg-gray-800/40",
+    chill: "bg-yellow-200/40",
+    grind: "bg-purple-300/40",
   };
 
   return (
     <div
       className={`h-full p-4 transition-all duration-300 backdrop-blur-md ${bgColor[mode]}`}
     >
-      {/* Heading */}
       <h2
         className={`text-white font-bold text-xl mb-4 font-mono transition-opacity duration-300 ${
           isHovered ? "opacity-100" : "opacity-0"
@@ -24,7 +27,6 @@ const Sidebar = ({ setMode, mode, isHovered }) => {
         Moods
       </h2>
 
-      {/* Mood Buttons */}
       <ul className="space-y-3">
         {moods.map((m) => (
           <li

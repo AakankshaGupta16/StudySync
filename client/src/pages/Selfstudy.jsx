@@ -1,5 +1,3 @@
-
-// SelfStudy.jsx
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import AnimatedBackdrop from "../components/AnimatedBackdrop";
@@ -20,15 +18,20 @@ const SelfStudy = () => {
       <AnimatedBackdrop mode={mode} />
 
       <div className="flex w-full">
+        {/* Sidebar */}
         <div
-          className={`transition-all duration-300 ${isHovered ? "w-64" : "w-20"}`}
+          className={`transition-all duration-300 ${
+            isHovered ? "w-64" : "w-20"
+          }`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           <Sidebar setMode={setMode} mode={mode} isHovered={isHovered} />
         </div>
 
+        {/* Main Content */}
         <div className="flex flex-col flex-grow transition-all duration-300 p-6 pt-28">
+          {/* Top Bar */}
           <div
             className={`fixed top-0 right-0 z-50 flex justify-between items-center px-8 py-4 bg-black/50 backdrop-blur-lg border-b border-white/20 transition-all duration-300 ${
               isHovered ? "left-64" : "left-20"
@@ -42,11 +45,16 @@ const SelfStudy = () => {
             </div>
           </div>
 
+          {/* Description */}
           <div className="text-white text-center mb-8">
-            <p className="text-lg text-white/80 mt-2">Plan your grind with vibes!</p>
+            <p className="text-lg text-white/80 mt-2">
+              Plan your grind with vibes!
+            </p>
           </div>
 
+          {/* Main Grid */}
           <div className="flex gap-6">
+            {/* Calendar */}
             <div className="w-[260px]">
               <TailwindCalendar
                 selectedDate={selectedDate}
@@ -54,17 +62,20 @@ const SelfStudy = () => {
               />
             </div>
 
+            {/* To-Do List */}
             <div className="flex-1 bg-white/15 backdrop-blur-lg rounded-3xl p-6 text-white shadow-lg border border-white/20">
               <TodoList selectedDate={selectedDate} />
             </div>
           </div>
 
+          {/* Document Section */}
           <div className="mt-10">
             <DocumentViewer />
           </div>
         </div>
       </div>
 
+      {/* AI Chatbox */}
       <AIChatBox />
     </div>
   );

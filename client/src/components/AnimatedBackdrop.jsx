@@ -1,12 +1,18 @@
 import React from "react";
 import focusVideo from "../assets/mood/focus.mp4";
 import nightOwlVideo from "../assets/mood/nightowl.mp4";
+import chillVideo from "../assets/mood/chill.mp4";
+import grindVideo from "../assets/mood/grind.mp4";
 
 const AnimatedBackdrop = ({ mode }) => {
   const getVideoSrc = () => {
     switch (mode) {
       case "nightowl":
         return nightOwlVideo;
+      case "chill":
+        return chillVideo;
+      case "grind":
+        return grindVideo;
       case "focus":
       default:
         return focusVideo;
