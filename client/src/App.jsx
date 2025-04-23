@@ -4,7 +4,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import SelfStudy from './pages/Selfstudy'; // ✅ New import
+import SelfStudy from './pages/Selfstudy';
+import GroupStudy from './pages/GroupStudy'; // ✅ New import
 
 const Home = () => (
   <div className="min-h-screen bg-indigo-600 text-white">
@@ -44,7 +45,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/self-study" element={<SelfStudy />} /> {/* ✅ New route */}
+        <Route path="/self-study" element={<SelfStudy />} />
+        <Route path="/group-study" element={<GroupStudy />} /> {/* ✅ New route */}
       </Routes>
     </Router>
   );
