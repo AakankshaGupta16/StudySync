@@ -6,6 +6,7 @@ import TodoList from "../components/TodoList";
 import PomodoroTimer from "../components/PomodoroTimer";
 import DocumentViewer from "../components/Documentviewer";
 import AIChatBox from "../components/AIChatbox";
+import SpotifyPlayer from "../components/SpotifyPlayer"; // <-- Import here
 import dayjs from "dayjs";
 
 const SelfStudy = () => {
@@ -66,6 +67,11 @@ const SelfStudy = () => {
             <div className="flex-1 bg-white/15 backdrop-blur-lg rounded-3xl p-6 text-white shadow-lg border border-white/20">
               <TodoList selectedDate={selectedDate} />
             </div>
+          </div>
+
+          {/* Spotify Player */}
+          <div className="mt-10">
+            <SpotifyPlayer embedUrl="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS?utm_source=generator" />
           </div>
 
           {/* Document Section */}
