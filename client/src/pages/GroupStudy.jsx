@@ -88,19 +88,6 @@ const GroupStudy = () => {
             />
             {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
 
-            <div className="flex justify-center items-center mb-4">
-              <label className="mr-2 font-medium">Members: </label>
-              <select
-                value={members}
-                onChange={(e) => setMembers(Number(e.target.value))}
-                className="w-20 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400"
-              >
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-              </select>
-            </div>
-
             <button
               onClick={handleJoinWithCode}
               className="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition"
