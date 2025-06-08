@@ -15,6 +15,24 @@ public class AuthController {
     @Autowired
     private UserRepository userRepository;
 
+    @PostMapping("/signup")
+    public Map<String, Object> signup(@RequestBody LoginRequest request) {
+        Map<String, Object> response = new HashMap<>();
+
+        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+            response.put("success", false);
+            response.put("message", "Email already exists");
+            return response;
+        }
+
+        User newUser = new User(request.getEmail(), request.getPassword());
+        userRepository.save(newUser);
+
+        response.put("success", true);
+        response.put("message", "Signup successful");
+        return response;
+    }
+
     @PostMapping("/login")
     public Map<String, Object> login(@RequestBody LoginRequest request) {
         Map<String, Object> response = new HashMap<>();
@@ -24,8 +42,8 @@ public class AuthController {
             User user = userOptional.get();
             if (user.getPassword().equals(request.getPassword())) {
                 response.put("success", true);
-                response.put("message", "Login successful!");
-                response.put("user", user.getEmail());  // optional
+                response.put("message", "Login successful");
+                response.put("user", user.getEmail());
             } else {
                 response.put("success", false);
                 response.put("message", "Invalid password");
@@ -33,23 +51,6 @@ public class AuthController {
         } else {
             response.put("success", false);
             response.put("message", "User not found");
-        }
-
-        return response;
-    }
-
-    @PostMapping("/signup")
-    public Map<String, Object> signup(@RequestBody User newUser) {
-        Map<String, Object> response = new HashMap<>();
-        Optional<User> existingUser = userRepository.findByEmail(newUser.getEmail());
-
-        if (existingUser.isPresent()) {
-            response.put("success", false);
-            response.put("message", "Email already in use");
-        } else {
-            userRepository.save(newUser);
-            response.put("success", true);
-            response.put("message", "Signup successful!");
         }
 
         return response;
