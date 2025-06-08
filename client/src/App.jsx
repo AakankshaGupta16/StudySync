@@ -1,12 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Login from './pages/Login';
+import Signup from './pages/Signup'; // Make sure this file exists
 import Dashboard from './pages/Dashboard';
 import SelfStudy from './pages/Selfstudy';
-import GroupStudy from './pages/GroupStudy'; 
+import GroupStudy from './pages/GroupStudy';
 import Roomcreate from './pages/Roomcreate';
+import HelloBackend from './pages/HelloBackend';
 
 const Home = () => (
   <div className="min-h-screen bg-indigo-600 text-white">
@@ -45,10 +48,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/self-study" element={<SelfStudy />} />
-        <Route path="/group-study" element={<GroupStudy />} /> {/* ✅ New route */}
+        <Route path="/group-study" element={<GroupStudy />} />
         <Route path="/group-study-room" element={<Roomcreate />} />
+        <Route path="/test-backend" element={<HelloBackend />} />
       </Routes>
     </Router>
   );
